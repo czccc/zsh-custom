@@ -54,7 +54,7 @@ fi
 
 
 alias vz="vim ~/.zshrc && source ~/.zshrc"
-alias vzz="vim ~/.zimrc"
+alias vzz="vim ~/.zimrc && zimfw install && zimfw update"
 alias gfc="git clone --recursive"
 alias gst="git status"
 
