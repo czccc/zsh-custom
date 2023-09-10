@@ -18,12 +18,23 @@ if (( $+commands[lazygit] )); then
   alias lg=lazygit
 fi
 
-if (( $+commands[exa] )); then
-  export EXA_COLORS='da=1;34:gm=1;34'
+if (( $+commands[lazydocker] )); then
+  alias lzd=lazydocker
+fi
 
-  alias ls='exa --group-directories-first'
+if (( $+commands[cargo] )); then
+  export PATH="~/.cargo/bin:${PATH}"
+fi
+
+alias ls='ls --color=auto'
+alias ll='ls -hl'
+alias l='ll -a'
+alias la='ll -a'
+
+if (( $+commands[eza] )); then
+  alias ls='eza --color=auto --group-directories-first'
   alias ll='ls -l --git'        # Long format, git status
-  alias l='ll -a'               # Long format, all files
+  alias l='ll -a --git-ignore'  # Long format, all files
   alias la='ll -a'              # Long format, all files
   alias lr='ll -T'              # Long format, recursive as a tree
   alias lx='ll -sextension'     # Long format, sort by extension
@@ -33,7 +44,8 @@ if (( $+commands[exa] )); then
 fi
 
 if (( $+commands[nvim] )); then
-  alias vim=nvim
+  alias vim="nvim"
+  alias nv="nvim"
 fi
 
 if (( $+commands[tmux] )); then
@@ -44,7 +56,6 @@ fi
 
 alias vz="vim ~/.zshrc && source ~/.zshrc"
 alias vzz="vim ~/.zimrc"
-alias nv="nvim"
 alias gfc="git clone --recursive"
 alias gst="git status"
 
