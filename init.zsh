@@ -7,22 +7,27 @@
 
 typeset -g HISTFILE=${ZDOTDIR:-${HOME}}/.zsh_history
 
-if (( $+commands[cargo] )); then
-  export PATH="~/.cargo/bin:${PATH}"
-fi
-
 if (( $+commands[zoxide] )); then
+  #export _ZO_ECHO=1
   eval "$(zoxide init zsh)"
   alias zz=__zoxide_zi
 fi
 
 
 if (( $+commands[lazygit] )); then
-  alias lg="lazygit"
+  alias lg=lazygit
 fi
 
 if (( $+commands[lazydocker] )); then
-  alias lzd="lazydocker"
+  alias lzd=lazydocker
+fi
+
+if (( $+commands[cargo] )); then
+  export PATH="~/.cargo/bin:${PATH}"
+fi
+
+if (( $+commands[go] )); then
+  export PATH="~/go/bin:${PATH}"
 fi
 
 alias ls='ls --color=auto'
@@ -54,7 +59,8 @@ fi
 
 
 alias vz="vim ~/.zshrc && source ~/.zshrc"
-alias vzz="vim ~/.zimrc && zimfw install && zimfw update"
+alias vzz="vim ~/.zimrc"
+alias vzu="zimfw install && zimfw update"
 alias gfc="git clone --recursive"
 alias gst="git status"
 
